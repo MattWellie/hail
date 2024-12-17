@@ -1438,7 +1438,8 @@ object LoadVCF {
       filterAttrs,
       infoAttrs,
       formatAttrs,
-      infoFlagFields)
+      infoFlagFields,
+    )
   }
 
   def getHeaderLines[T](
@@ -1772,7 +1773,8 @@ object MatrixVCFReader {
         files, callFields, entryFloatTypeName, headerFile, sampleIDs, nPartitions, blockSizeInMB,
         minPartitions, rg,
         contigRecoding, arrayElementsRequired, skipInvalidLoci, gzAsBGZ, forceGZ, filterAndReplace,
-        partitionsJSON, partitionsTypeStr),
+        partitionsJSON, partitionsTypeStr,
+      ),
     )
 
   def apply(ctx: ExecuteContext, params: MatrixVCFReaderParameters): MatrixVCFReader = {

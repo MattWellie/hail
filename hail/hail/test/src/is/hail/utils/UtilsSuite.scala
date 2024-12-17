@@ -103,7 +103,8 @@ class UtilsSuite extends HailSuite {
       "NONE", "DISK_ONLY", "DISK_ONLY_2", "MEMORY_ONLY", "MEMORY_ONLY_2", "MEMORY_ONLY_SER",
       "MEMORY_ONLY_SER_2",
       "MEMORY_AND_DISK", "MEMORY_AND_DISK_2", "MEMORY_AND_DISK_SER", "MEMORY_AND_DISK_SER_2",
-      "OFF_HEAP")
+      "OFF_HEAP",
+    )
 
     sls.foreach(sl => StorageLevel.fromString(sl))
   }

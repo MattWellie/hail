@@ -3830,7 +3830,8 @@ case class TableKeyByAndAggregate(
           makeKey,
           seqOp,
           serializeAndCleanupAggs,
-          localBufferSize)
+          localBufferSize,
+        )
       }.aggregateByKey(initAggs, nPartitions.getOrElse(prev.rvd.getNumPartitions))(combOp, combOp)
 
     val crdd = ContextRDD.weaken(rdd).cmapPartitionsWithIndex({ (i, ctx, it) =>

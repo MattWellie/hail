@@ -308,9 +308,8 @@ case class BlockMatrixSparsity(definedBlocks: Option[IndexedSeq[(Int, Int)]]) {
     BlockMatrixSparsity(definedBlocks.map(_.map { case (i, j) => (j, i) }))
 
   override def toString: String =
-    definedBlocks.map { blocks =>
-      blocks.map { case (i, j) => s"($i,$j)" }.mkString("[", ",", "]")
-    }.getOrElse("None")
+    definedBlocks.map(blocks => blocks.map { case (i, j) => s"($i,$j)" }.mkString("[", ",", "]"))
+      .getOrElse("None")
 }
 
 object BlockMatrixType {

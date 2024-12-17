@@ -1903,7 +1903,8 @@ class Emit[C](val ctx: EmitContext, val cb: EmitClassBuilder[C]) {
             newStrides,
             dataPtr,
             cb,
-            region)
+            region,
+          )
         }
 
       case NDArrayRef(nd, idxs, errorId) =>
@@ -1946,7 +1947,8 @@ class Emit[C](val ctx: EmitContext, val cb: EmitClassBuilder[C]) {
                 )
 
                 if (
-                  (lSType.elementType.virtualType == TFloat64 || lSType.elementType.virtualType == TFloat32) && lSType.nDims == 2 && rSType.nDims == 2
+                  (lSType.elementType.virtualType == TFloat64 || lSType.elementType
+                    .virtualType == TFloat32) && lSType.nDims == 2 && rSType.nDims == 2
                 ) {
                   val leftDataAddress = leftPVal.firstDataAddress
                   val rightDataAddress = rightPVal.firstDataAddress

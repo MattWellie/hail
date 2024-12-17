@@ -1067,7 +1067,8 @@ object Interpret {
           }
 
           val rv = value.rvd.combine[WrappedByteArray, RegionValue](
-            ctx, mkZero, itF, read, write, combOpF, isCommutative, useTreeAggregate)
+            ctx, mkZero, itF, read, write, combOpF, isCommutative, useTreeAggregate,
+          )
 
           val (Some(PTypeReferenceSingleCodeType(rTyp: PTuple)), f) =
             CompileWithAggregators[AsmFunction2RegionLongLong](

@@ -42,7 +42,8 @@ object IndexReaderBuilder {
     (theHailClassLoader, fs, path, cacheCapacity, pool) =>
       new IndexReader(
         theHailClassLoader, fs, path, cacheCapacity, leafDec, intDec, keyType, annotationType,
-        leafPType, intPType, pool, sm)
+        leafPType, intPType, pool, sm,
+      )
   }
 }
 

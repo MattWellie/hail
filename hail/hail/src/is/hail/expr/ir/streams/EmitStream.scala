@@ -984,7 +984,8 @@ object EmitStream {
                   )
                   val fC = cb.newLocal[Double](
                     "seq_sample_Fc",
-                    (totalSizeVal.value - candidate - nRemaining).toD / (totalSizeVal.value - candidate).toD,
+                    (totalSizeVal.value - candidate - nRemaining)
+                      .toD / (totalSizeVal.value - candidate).toD,
                   )
 
                   cb.while_(

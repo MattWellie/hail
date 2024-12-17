@@ -798,7 +798,7 @@ object IRParser {
 
   def apply_like(
     env: IRParserEnvironment,
-    cons: (String, Seq[Type], Seq[IR], Type, Int) => IR,
+    cons: (String, Seq[Type], IndexedSeq[IR], Type, Int) => IR,
   )(
     it: TokenIterator
   ): StackFrame[IR] = {
@@ -1820,7 +1820,8 @@ object IRParser {
       case "MatrixRead" =>
         val requestedTypeRaw = it.head match {
           case x: IdentifierToken
-              if x.value == "None" || x.value == "DropColUIDs" || x.value == "DropRowUIDs" || x.value == "DropRowColUIDs" =>
+              if x.value == "None" || x.value == "DropColUIDs" || x.value == "DropRowUIDs" || x
+                .value == "DropRowColUIDs" =>
             consumeToken(it)
             Left(x.value)
           case _ =>

@@ -128,7 +128,8 @@ class BlockMatrixSuite extends HailSuite {
         1, 2, 3, 4,
         5, 6, 7, 8,
         9, 10, 11, 12,
-        13, 14, 15, 16),
+        13, 14, 15, 16,
+      ),
     )
 
     val expected = toLM(
@@ -138,7 +139,8 @@ class BlockMatrixSuite extends HailSuite {
         0, -3, -6, -9,
         3, 0, -3, -6,
         6, 3, 0, -3,
-        9, 6, 3, 0),
+        9, 6, 3, 0,
+      ),
     )
 
     val actual = (m - m.T).toBreezeMatrix()
@@ -154,7 +156,8 @@ class BlockMatrixSuite extends HailSuite {
         1, 2, 3, 4,
         5, 6, 7, 8,
         9, 10, 11, 12,
-        13, 14, 15, 16),
+        13, 14, 15, 16,
+      ),
     )
     val l = toBM(ll)
 
@@ -250,7 +253,8 @@ class BlockMatrixSuite extends HailSuite {
         1, 2, 3, 4,
         5, 6, 7, 8,
         9, 10, 11, 12,
-        13, 14, 15, 16),
+        13, 14, 15, 16,
+      ),
     )
 
     val v = Array[Double](1, 2, 3, 4)
@@ -262,7 +266,8 @@ class BlockMatrixSuite extends HailSuite {
         1, 4, 9, 16,
         5, 12, 21, 32,
         9, 20, 33, 48,
-        13, 28, 45, 64),
+        13, 28, 45, 64,
+      ),
     )
 
     assert(l.rowVectorMul(v).toBreezeMatrix() == result)
@@ -294,7 +299,8 @@ class BlockMatrixSuite extends HailSuite {
         1, 2, 3, 4,
         5, 6, 7, 8,
         9, 10, 11, 12,
-        13, 14, 15, 16),
+        13, 14, 15, 16,
+      ),
     )
 
     val v = Array[Double](1, 2, 3, 4)
@@ -306,7 +312,8 @@ class BlockMatrixSuite extends HailSuite {
         1, 2, 3, 4,
         10, 12, 14, 16,
         27, 30, 33, 36,
-        52, 56, 60, 64),
+        52, 56, 60, 64,
+      ),
     )
 
     assert(l.colVectorMul(v).toBreezeMatrix() == result)
@@ -343,7 +350,8 @@ class BlockMatrixSuite extends HailSuite {
         1, 2, 3, 4,
         5, 6, 7, 8,
         9, 10, 11, 12,
-        13, 14, 15, 16),
+        13, 14, 15, 16,
+      ),
     )
 
     val v = Array[Double](1, 2, 3, 4)
@@ -355,7 +363,8 @@ class BlockMatrixSuite extends HailSuite {
         2, 3, 4, 5,
         7, 8, 9, 10,
         12, 13, 14, 15,
-        17, 18, 19, 20),
+        17, 18, 19, 20,
+      ),
     )
 
     assert(l.colVectorAdd(v).toBreezeMatrix() == result)
@@ -370,7 +379,8 @@ class BlockMatrixSuite extends HailSuite {
         1, 2, 3, 4,
         5, 6, 7, 8,
         9, 10, 11, 12,
-        13, 14, 15, 16),
+        13, 14, 15, 16,
+      ),
     )
 
     val v = Array[Double](1, 2, 3, 4)
@@ -382,7 +392,8 @@ class BlockMatrixSuite extends HailSuite {
         2, 4, 6, 8,
         6, 8, 10, 12,
         10, 12, 14, 16,
-        14, 16, 18, 20),
+        14, 16, 18, 20,
+      ),
     )
 
     assert(l.rowVectorAdd(v).toBreezeMatrix() == result)
@@ -396,7 +407,8 @@ class BlockMatrixSuite extends HailSuite {
       Array[Double](
         1, 2, 3, 4,
         5, 6, 7, 8,
-        9, 10, 11, 12),
+        9, 10, 11, 12,
+      ),
     )
 
     val m = toBM(lm, blockSize = 2)
@@ -442,7 +454,8 @@ class BlockMatrixSuite extends HailSuite {
         1, 2, 3, 4,
         5, 6, 7, 8,
         9, 10, 11, 12,
-        13, 14, 15, 16),
+        13, 14, 15, 16,
+      ),
     )
 
     val fname = ctx.createTmpPath("test")
@@ -463,7 +476,8 @@ class BlockMatrixSuite extends HailSuite {
         1, 2, 3, 4,
         5, 6, 7, 8,
         9, 10, 11, 12,
-        13, 14, 15, 16),
+        13, 14, 15, 16,
+      ),
     )
 
     val fname = ctx.createTmpPath("test")
@@ -565,14 +579,16 @@ class BlockMatrixSuite extends HailSuite {
         1, 2,
         3, 4,
         5, 6,
-        7, 8),
+        7, 8,
+      ),
     )
     val lmt = toLM(
       2,
       4,
       Array[Double](
         1, 3, 5, 7,
-        2, 4, 6, 8),
+        2, 4, 6, 8,
+      ),
     )
 
     val m = toBM(lm)
@@ -594,14 +610,16 @@ class BlockMatrixSuite extends HailSuite {
         1, 2,
         3, 4,
         5, 6,
-        7, 8),
+        7, 8,
+      ),
     )
     val lmt = toLM(
       2,
       4,
       Array[Double](
         1, 3, 5, 7,
-        2, 4, 6, 8),
+        2, 4, 6, 8,
+      ),
     )
 
     val m = toBM(lm)
@@ -620,14 +638,16 @@ class BlockMatrixSuite extends HailSuite {
         1, 2,
         3, 4,
         5, 6,
-        7, 8),
+        7, 8,
+      ),
     )
     val lmt = toLM(
       2,
       4,
       Array[Double](
         1, 3, 5, 7,
-        2, 4, 6, 8),
+        2, 4, 6, 8,
+      ),
     )
 
     val m = toBM(lm)
@@ -647,14 +667,16 @@ class BlockMatrixSuite extends HailSuite {
         1, 2,
         3, 4,
         5, 6,
-        7, 8),
+        7, 8,
+      ),
     )
     val lmt = toLM(
       2,
       4,
       Array[Double](
         1, 3, 5, 7,
-        2, 4, 6, 8),
+        2, 4, 6, 8,
+      ),
     )
 
     val m = toBM(lm)
@@ -683,14 +705,16 @@ class BlockMatrixSuite extends HailSuite {
         1, 2,
         3, 4,
         5, 6,
-        7, 8),
+        7, 8,
+      ),
     )
     val lmt = toLM(
       2,
       4,
       Array[Double](
         1, 3, 5, 7,
-        2, 4, 6, 8),
+        2, 4, 6, 8,
+      ),
     )
 
     val m = toBM(lm)
@@ -984,7 +1008,8 @@ class BlockMatrixSuite extends HailSuite {
         1, 2, 3, 4,
         5, 6, 7, 8,
         9, 10, 11, 12,
-        13, 14, 15, 16),
+        13, 14, 15, 16,
+      ),
     )
 
     val bm = toBM(lm, blockSize = 2)
@@ -1031,7 +1056,8 @@ class BlockMatrixSuite extends HailSuite {
         1, 2, 3, 4,
         5, 6, 7, 8,
         9, 10, 11, 12,
-        13, 14, 15, 16),
+        13, 14, 15, 16,
+      ),
     )
 
     val bm = toBM(lm, blockSize = 2)
@@ -1084,7 +1110,8 @@ class BlockMatrixSuite extends HailSuite {
         1, 2, 3, 4,
         5, 6, 7, 8,
         9, 10, 11, 12,
-        13, 14, 15, 16),
+        13, 14, 15, 16,
+      ),
     )
 
     val bm = toBM(lm, blockSize = 2)
@@ -1238,7 +1265,8 @@ class BlockMatrixSuite extends HailSuite {
         1, 2, 3, 4,
         5, 6, 7, 8,
         9, 10, 11, 12,
-        13, 14, 15, 16),
+        13, 14, 15, 16,
+      ),
     )
 
     val bm = toBM(lm, blockSize = 2)

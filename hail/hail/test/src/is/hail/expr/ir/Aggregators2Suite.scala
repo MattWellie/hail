@@ -1056,7 +1056,8 @@ class Aggregators2Suite extends HailSuite {
       FastSeq(
         0.0, 0.0, 1.0,
         0.0, 0.0, 1.0, 3.0,
-        0.0, 0.0, 1.0, 3.0, 6.0),
+        0.0, 0.0, 1.0, 3.0, 6.0,
+      ),
     )
   }
 

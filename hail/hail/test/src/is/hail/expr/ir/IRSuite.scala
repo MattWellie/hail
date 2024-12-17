@@ -1964,7 +1964,8 @@ class IRSuite extends HailSuite {
     val nd1 = (
       FastSeq(
         0, 1, 2,
-        3, 4, 5),
+        3, 4, 5,
+      ),
       2L,
       3L,
     )
@@ -1973,7 +1974,8 @@ class IRSuite extends HailSuite {
       FastSeq(
         6, 7, 8,
         9, 10, 11,
-        12, 13, 14),
+        12, 13, 14,
+      ),
       3L,
       3L,
     )

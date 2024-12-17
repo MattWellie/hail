@@ -27,9 +27,8 @@ object ParserUtils {
     fatal(
       s"""$msg
          |$prefix$lineContents
-         |${" " * prefix.length}${lineContents.take(pos.column - 1).map { c =>
-          if (c == '\t') c else ' '
-        }}^""".stripMargin
+         |${" " * prefix.length}${lineContents.take(pos.column - 1)
+          .map(c => if (c == '\t') c else ' ')}^""".stripMargin
     )
   }
 
@@ -39,9 +38,8 @@ object ParserUtils {
     fatal(
       s"""$msg
          |$prefix$lineContents
-         |${" " * prefix.length}${lineContents.take(pos.column - 1).map { c =>
-          if (c == '\t') c else ' '
-        }}^""".stripMargin,
+         |${" " * prefix.length}${lineContents.take(pos.column - 1)
+          .map(c => if (c == '\t') c else ' ')}^""".stripMargin,
       tr,
     )
   }

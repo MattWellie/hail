@@ -401,7 +401,8 @@ case class MatrixNativeWriter(
 
     val components = MatrixNativeWriter.generateComponentFunctions(
       colsFieldName, entriesFieldName, colKey, ctx, tablestage, r,
-      path, overwrite, stageLocally, codecSpecJSONStr, partitions, partitionsTypeStr)
+      path, overwrite, stageLocally, codecSpecJSONStr, partitions, partitionsTypeStr,
+    )
 
     Begin(FastSeq(
       components.setup,

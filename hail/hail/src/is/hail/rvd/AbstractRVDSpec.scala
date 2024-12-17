@@ -405,7 +405,8 @@ case class RVDSpecMaker(
           ais,
           partFiles,
           bounds,
-          attrs)
+          attrs,
+        )
       case None => OrderedRVDSpec2(
           key,
           codecSpec,

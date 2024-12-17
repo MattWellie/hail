@@ -100,9 +100,7 @@ object LoweringPipeline {
     DArrayLowering.All,
     DArrayLowering.TableOnly,
     DArrayLowering.BMOnly,
-  ).map { lv =>
-    (lv -> fullLoweringPipeline("darrayLowerer", LowerToDistributedArrayPass(lv)))
-  }.toMap
+  ).map(lv => (lv -> fullLoweringPipeline("darrayLowerer", LowerToDistributedArrayPass(lv)))).toMap
 
   private val _dArrayLowerersNoOpt = _dArrayLowerers.mapValues(_.noOptimization()).toMap
 

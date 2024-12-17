@@ -16,14 +16,16 @@ class IndexSuite extends HailSuite {
     "lion", "mouse", "parrot", "quail",
     "rabbit", "raccoon", "rat", "raven",
     "skunk", "snail", "squirrel", "vole",
-    "weasel", "whale", "yak", "zebra")
+    "weasel", "whale", "yak", "zebra",
+  )
 
   val stringsWithDups = Array(
     "bear", "bear", "cat", "cat",
     "cat", "cat", "cat", "cat",
     "cat", "dog", "mouse", "mouse",
     "skunk", "skunk", "skunk", "whale",
-    "whale", "zebra", "zebra", "zebra")
+    "whale", "zebra", "zebra", "zebra",
+  )
 
   val leafsWithDups = stringsWithDups.zipWithIndex.map { case (s, i) => LeafChild(s, i, Row()) }
 

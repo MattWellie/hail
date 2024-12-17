@@ -222,7 +222,8 @@ class GenericTableValue(
         ctx,
         globalsIR,
         contextType, contexts,
-        requestedBody)
+        requestedBody,
+      )
     }
   }
 }
