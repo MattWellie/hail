@@ -8,6 +8,7 @@ import is.hail.expr.{JSONAnnotationImpex, SparkAnnotationImpex, Validate}
 import is.hail.expr.ir.{IRParser, _}
 import is.hail.expr.ir.IRParser.parseType
 import is.hail.expr.ir.analyses.SemanticHash
+import is.hail.expr.ir.defs.{EncodedLiteral, GetFieldByIdx, MakeTuple}
 import is.hail.expr.ir.lowering._
 import is.hail.io.{BufferSpec, TypedCodecSpec}
 import is.hail.io.fs._
