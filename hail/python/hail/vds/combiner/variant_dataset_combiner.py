@@ -175,6 +175,11 @@ class VariantDatasetCombiner:  # pylint: disable=too-many-instance-attributes
         Genotype fields to keep in the reference table. If empty, the first 10,000 reference block
         rows of ``mt`` will be sampled and all fields found to be defined other than ``GT``, ``AD``,
         and ``PL`` will be entry fields in the resulting reference matrix in the dataset.
+    force_write_final_vds : :class:`bool`
+        If ``True``, the final VariantDataset will be written to `output_path` even if the target output
+        VDS already exists. If ``False`` but the target output VDS already exists, the combiner will fail
+        at the final step. This aims to solve for situations where a previous attempt at _write_final
+        wrote an incomplete VDS, and the combiner should be rerun to completion.
 
     """
 
@@ -237,6 +242,7 @@ class VariantDatasetCombiner:  # pylint: disable=too-many-instance-attributes
         gvcf_import_intervals: List[Interval],
         gvcf_info_to_keep: Optional[Collection[str]] = None,
         gvcf_reference_entry_fields_to_keep: Optional[Collection[str]] = None,
+        force_write_final_vds: bool = False,
     ):
         if gvcf_import_intervals:
             interval = gvcf_import_intervals[0]
@@ -284,6 +290,7 @@ class VariantDatasetCombiner:  # pylint: disable=too-many-instance-attributes
         self._job_id = 1
         self.__intervals_cache = {}
         self._gvcf_batch_size = gvcf_batch_size
+        self._force_write_final_vds = force_write_final_vds
 
     @property
     def gvcf_batch_size(self):
@@ -432,7 +439,7 @@ class VariantDatasetCombiner:  # pylint: disable=too-many-instance-attributes
             self._job_id += 1
 
     def _write_final(self, vds):
-        vds.write(self._output_path)
+        vds.write(self._output_path, overwrite=self._force_write_final_vds)
 
         if VariantDataset.ref_block_max_length_field not in vds.reference_data.globals:
             info("VDS combiner: computing reference block max length...")
